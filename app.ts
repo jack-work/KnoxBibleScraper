@@ -1,4 +1,4 @@
-import DOMParser from 'dom-parser';
+var DOMParser = require("dom-parser");
 import * as http from 'http';
 import * as fs from 'fs/promises';
 
@@ -42,33 +42,29 @@ const steps = {
         await steps.collectVerses(bible);
     },
     collectVerses: async (bible: Bible) => {
-        var promises: Promise<Verse[]>[] = [];
-        for (var testament of bible.Testaments) {
-            for (var book of testament.Books) {
-                // Iterate over chapter numbers starting at one.  Go until there is an error.  An error indicates a bad response.
-                // A bad response indicates the chapter doesn't exist.  If a chapter does not exist, we have exhausted a book
-                // and we should move to the next book iteration.
-                for (var chapterNumber = 1; await steps.checkChapterExists(websitePrefix, testament.id, book.book_id, chapterNumber); chapterNumber++) {
-                    var promise = steps.getChapterVerses([], websitePrefix, testament.id, book.book_id, book.book_name, chapterNumber)
-                    promises = promises.concat(promise);
+        var verses = (await Promise.all(bible.Testaments.map(async testament => {
+            return (await Promise.all(testament.Books.map(async book => {
+                var bookVerses: Verse[] = [];
+                for (var chapterNumber = 1; true; chapterNumber++) {
+                    try {
+                        bookVerses = bookVerses.concat(await steps.getChapterVerses([], websitePrefix, testament.id, book.book_id, book.book_name, chapterNumber));
+                    } catch (exception) {
+                        break;
+                    }
                 }
-            }
-        }
+                return bookVerses;
+            })
+        )).flat()}))).flat();
 
-        const verses = (await Promise.all(promises)).flat();
         await steps.writeVerses(verses);
     },
     writeVerses: async (verses: Verse[]) => {
         // in qualified json
-        //await fs.writeFile(outputFileName + "_qualified", JSON.stringify(verses));
+        await fs.writeFile(outputFileName + "_qualified", JSON.stringify(verses));
 
         // in json with no top level array, just return separated objects
         await fs.writeFile(outputFileName, verses.map(verse => JSON.stringify(verse)).join("\n"));
     },
-    checkChapterExists: async (hostname: string, testamentId: string, bookId: string, chapter: number): Promise<boolean> => new Promise<boolean>((resolve, reject) => {
-        const url = hostname + "/" + testamentId + "/" + bookId + "/ch_" + chapter;
-        http.get(url, res => resolve(res.statusCode === 200)).on('error', error => reject(error)).end();
-    }),
     getChapterVerses: async (verses: Verse[], hostname: string, testamentId: string, bookId: string, bookName: string, chapter: number): Promise<Verse[]> => new Promise<Verse[]>((resolve, reject) => {
         const url = hostname + "/" + testamentId + "/" + bookId + "/ch_" + chapter;
         const req = http.get(url, res => {
@@ -100,7 +96,7 @@ const steps = {
             return [];
         }
 
-        return verseElements[0].getElementsByClassName("vers")?.map(verseElement => {
+        return verseElements[0].getElementsByClassName("vers")?.reduce((accumulant: Verse[], verseElement) => {
             const verse = new Verse();
             verse.book_id = book_id;
             verse.book_name = book_name;
@@ -108,21 +104,22 @@ const steps = {
             verse.translation_id = translationId;
 
             const verseNumber = verseElement.getElementsByClassName("vers-no");
-            if (verseNumber == null)
-            {
-                throw new Error("Verse number doesn't exist");
+            if (!verseNumber) {
+                return accumulant;
             }
             verse.verse = parseInt(verseNumber[0].innerHTML);
+            if (!verse.verse) {
+                return accumulant;
+            }
 
             const verseContent = verseElement.getElementsByClassName("vers-content");
-            if (verseContent == null)
-            {
-                throw new Error("Verse number doesn't exist");
+            if (!verseContent) {
+                return accumulant;
             }
             verse.text = Array.from(removeTags(verseContent[0])).join();
 
-            return verse;
-        }) ?? [];
+            return accumulant.concat(verse);
+        }, []) ?? [];
     }
 };
 function* removeTags(node: DOMParser.Node): IterableIterator<string> {
@@ -132,9 +129,8 @@ function* removeTags(node: DOMParser.Node): IterableIterator<string> {
         if (top?.nodeName === "#text" && !/^ *$/.test(top.text)) {
             // if the node is text and it's not all whitespace we emit it
             yield top.text;
-        } else if (top && top.childNodes?.length > 1) {
-            // if the length is equal to one, we may have an infinite loop
-            stack.concat(top.childNodes);
+        } else if (top) {
+            stack = stack.concat(top.childNodes);
         }
     }
 }
