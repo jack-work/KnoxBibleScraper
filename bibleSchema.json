@@ -1,0 +1,307 @@
+{
+    "translation_id": "ASV",
+    "Testaments": [
+        {
+            "id": "OT",
+            "Books": [
+                {
+                    "book_name": "Genesis",
+                    "book_id": "Gen"
+                },
+                {
+                    "book_name": "Exodus",
+                    "book_id": "Ex"
+                },
+                {
+                    "book_name": "Leviticus",
+                    "book_id": "Lev"
+                },
+                {
+                    "book_name": "Numbers",
+                    "book_id": "Num"
+                },
+                {
+                    "book_name": "Deuteronomy",
+                    "book_id": "Dt"
+                },
+                {
+                    "book_name": "Josue",
+                    "book_id": "Jos"
+                },
+                {
+                    "book_name": "Judges",
+                    "book_id": "Judg"
+                },
+                {
+                    "book_name": "Ruth",
+                    "book_id": "Ru"
+                },
+                {
+                    "book_name": "1 Kings",
+                    "book_id": "1_Kgs"
+                },
+                {
+                    "book_name": "2 Kings",
+                    "book_id": "2_Kgs"
+                },
+                {
+                    "book_name": "3 Kings",
+                    "book_id": "3_Kgs"
+                },
+                {
+                    "book_name": "4 Kings",
+                    "book_id": "4_Kgs"
+                },
+                {
+                    "book_name": "1 Paralipomena",
+                    "book_id": "1_Par"
+                },
+                {
+                    "book_name": "2 Paralipomena",
+                    "book_id": "2_Par"
+                },
+                {
+                    "book_name": "1 Esdras",
+                    "book_id": "Esd"
+                },
+                {
+                    "book_name": "2 Esdras (Nehemias)",
+                    "book_id": "Neh"
+                },
+                {
+                    "book_name": "Tobias",
+                    "book_id": "Tob"
+                },
+                {
+                    "book_name": "Judith",
+                    "book_id": "Jdt"
+                },
+                {
+                    "book_name": "Esther",
+                    "book_id": "Est"
+                },
+                {
+                    "book_name": "Job",
+                    "book_id": "Job"
+                },
+                {
+                    "book_name": "Psalms",
+                    "book_id": "Ps"
+                },
+                {
+                    "book_name": "Proverbs",
+                    "book_id": "Prov"
+                },
+                {
+                    "book_name": "Ecclesiastes",
+                    "book_id": "Eccl"
+                },
+                {
+                    "book_name": "Song of Songs",
+                    "book_id": "Cant"
+                },
+                {
+                    "book_name": "Wisdom",
+                    "book_id": "Wis"
+                },
+                {
+                    "book_name": "Ecclesiasticus",
+                    "book_id": "Eccle"
+                },
+                {
+                    "book_name": "Isaias",
+                    "book_id": "Isa"
+                },
+                {
+                    "book_name": "Jeremias",
+                    "book_id": "Jer"
+                },
+                {
+                    "book_name": "Lamentations",
+                    "book_id": "Lam"
+                },
+                {
+                    "book_name": "Baruch",
+                    "book_id": "Bar"
+                },
+                {
+                    "book_name": "Ezechiel",
+                    "book_id": "Eze"
+                },
+                {
+                    "book_name": "Daniel",
+                    "book_id": "Dan"
+                },
+                {
+                    "book_name": "Osee",
+                    "book_id": "Os"
+                },
+                {
+                    "book_name": "Joel",
+                    "book_id": "Jo"
+                },
+                {
+                    "book_name": "Amos",
+                    "book_id": "Am"
+                },
+                {
+                    "book_name": "Abdias",
+                    "book_id": "Abd"
+                },
+                {
+                    "book_name": "Jonas",
+                    "book_id": "Jon"
+                },
+                {
+                    "book_name": "Michaeas",
+                    "book_id": "Mic"
+                },
+                {
+                    "book_name": "Nahum",
+                    "book_id": "Nah"
+                },
+                {
+                    "book_name": "Habacuc",
+                    "book_id": "Hab"
+                },
+                {
+                    "book_name": "Sophonias",
+                    "book_id": "Sop"
+                },
+                {
+                    "book_name": "Aggaeus",
+                    "book_id": "Agg"
+                },
+                {
+                    "book_name": "Zacharias",
+                    "book_id": "Zac"
+                },
+                {
+                    "book_name": "Malachias",
+                    "book_id": "Mal"
+                },
+                {
+                    "book_name": "1 Machabees",
+                    "book_id": "1_Mac"
+                },
+                {
+                    "book_name": "2 Machabees",
+                    "book_id": "2_Mac"
+                }
+            ]
+        },
+        {
+            "id": "NT",
+            "Books": [
+                {
+                    "book_id": "Mat",
+                    "book_name": "Matthew"
+                },
+                {
+                    "book_id": "Mk",
+                    "book_name": "Mark"
+                },
+                {
+                    "book_id": "Lk",
+                    "book_name": "Luke"
+                },
+                {
+                    "book_id": "Jn",
+                    "book_name": "John"
+                },
+                {
+                    "book_id": "Act",
+                    "book_name": "Acts of Apostles"
+                },
+                {
+                    "book_id": "Rom",
+                    "book_name": "Romans"
+                },
+                {
+                    "book_id": "1_Cor",
+                    "book_name": "1 Corinthians"
+                },
+                {
+                    "book_id": "2_Cor",
+                    "book_name": "2 Corinthians"
+                },
+                {
+                    "book_id": "Gal",
+                    "book_name": "Galatians"
+                },
+                {
+                    "book_id": "Eph",
+                    "book_name": "Ephesians"
+                },
+                {
+                    "book_id": "Phl",
+                    "book_name": "Philippians"
+                },
+                {
+                    "book_id": "Col",
+                    "book_name": "Colossians"
+                },
+                {
+                    "book_id": "1_Th",
+                    "book_name": "1 Thessalonians"
+                },
+                {
+                    "book_id": "2_Th",
+                    "book_name": "2 Thessalonians"
+                },
+                {
+                    "book_id": "1_Tim",
+                    "book_name": "1 Timothy"
+                },
+                {
+                    "book_id": "2_Tim",
+                    "book_name": "2 Timothy"
+                },
+                {
+                    "book_id": "Tit",
+                    "book_name": "Titus"
+                },
+                {
+                    "book_id": "Phm",
+                    "book_name": "Philemon"
+                },
+                {
+                    "book_id": "Heb",
+                    "book_name": "Hebrews"
+                },
+                {
+                    "book_id": "Jas",
+                    "book_name": "James"
+                },
+                {
+                    "book_id": "1_Pet",
+                    "book_name": "1 Peter"
+                },
+                {
+                    "book_id": "2_Pet",
+                    "book_name": "2 Peter"
+                },
+                {
+                    "book_id": "1_Jn",
+                    "book_name": "1 John"
+                },
+                {
+                    "book_id": "2_Jn",
+                    "book_name": "2 John"
+                },
+                {
+                    "book_id": "3_Jn",
+                    "book_name": "3 John"
+                },
+                {
+                    "book_id": "Jud",
+                    "book_name": "Jude"
+                },
+                {
+                    "book_id": "Apoc",
+                    "book_name": "Apocalypse"
+                }
+            ]
+        }
+    ]
+}
