@@ -1,6 +1,6 @@
 Knox Bible Scraper
 
-Scrapes Knox translation of the Bible at http://catholicbible.online/knox/ and emits to knox.json 
+Scrapes Knox translation of the Bible at http://catholicbible.online/knox/ and emits to knox.json.
 
 Format:
 https://github.com/bibleapi/bibleapi-bibles-json

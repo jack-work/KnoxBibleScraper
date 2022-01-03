@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc app.ts",
-    "start": "node app.js",
+    "build": "tsc",
+    "start": "node out\\app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/dom-parser": "^0.1.1",
+    "assert": "^2.0.0",
     "dom-parser": "^0.1.6",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
